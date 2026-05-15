@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MoodMatch</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+<div class="layout">
+
+  <aside class="sidebar">
+    <div class="logo">
+      <div class="logo-mark">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M9 18V5l12-2v13"/>
+          <circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/>
+        </svg>
+      </div>
+      <span class="logo-text">moodmatch</span>
+    </div>
+    <nav class="sidebar-nav">
+      <p class="nav-label">категории</p>
+      <button class="nav-item" data-category="love">Поиск любви</button>
+      <button class="nav-item" data-category="career">Карьера</button>
+      <button class="nav-item" data-category="friends">Дружба</button>
+      <button class="nav-item" data-category="family">Семья</button>
+    </nav>
+    <div class="sidebar-footer">
+      <p class="footer-hint">← расскажи как себя чувствуешь и получи рекомендацию</p>
+    </div>
+  </aside>
+
+  <main class="main">
+    <!-- 1. ХЕДЕР ТЕПЕРЬ ВСЕГДА СВЕРХУ (даже когда появятся результаты) -->
+    <header class="hero-section">
+      <p class="empty-serif">Что смотрим сегодня?</p>
+      <p class="empty-sub">Опиши своё состояние словами или выбери пример ниже</p>
+
+      <!-- 2. ПОИСКОВАЯ СТРОКА СРАЗУ ПОД ЗАГОЛОВКОМ -->
+      <div class="search-wrap">
+        <input id="query-input" class="query-input" type="text" placeholder="Расскажи, как себя чувствуешь...">
+        <button id="search-btn" class="search-btn" aria-label="Найти">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="22" y1="2" x2="11" y2="13"/>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Примеры запросов сразу под поиском -->
+      <div id="empty-state" class="empty-state">
+        <div class="suggestions-list">
+          <button class="suggestion-item" data-query="Мне очень неловко за свой поступок на свидании, хочется посмеяться над этим вместе с героями">
+            «Мне очень неловко за свой поступок на свидании, хочется посмеяться над этим вместе с героями»
+          </button>
+          <button class="suggestion-item" data-query="Чувствую опустошенность и потерю цели, нужно что-то вдохновляющее про успех в карьере">
+            «Чувствую опустошенность и потерю цели, нужно что-то вдохновляющее про успех в карьере»
+          </button>
+          <button class="suggestion-item" data-query="Хочется душевного тепла, посиделок на кухне и безусловной поддержки старых друзей">
+            «Хочется душевного тепла, посиделок на кухне и безусловной поддержки старых друзей»
+          </button>
+          <button class="suggestion-item" data-query="Светлая ностальгия по прошлому и чувство, что всё самое лучшее ещё впереди">
+            «Светлая ностальгия по прошлому и чувство, что всё самое лучшее ещё впереди»
+          </button>
+          <button class="suggestion-item" data-query="Тяжелый разрыв отношений и поиск внутренней силы, чтобы двигаться дальше">
+            «Тяжелый разрыв отношений и поиск внутренней силы, чтобы двигаться дальше»
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <div class="content-area">
+
+      <!-- Загрузка и Результаты остаются без изменений -->
+      <div id="loading-state" class="loading-state hidden">
+        <div class="loader-dots"><span></span><span></span><span></span></div>
+        <p>подбираем серии...</p>
+      </div>
+
+      <div id="results-wrap" class="hidden">
+        <div class="results-header">
+          <span id="results-count"></span>
+          <span id="results-query" class="results-query-text"></span>
+        </div>
+        <div id="results-list" class="results-list"></div>
+      </div>
+
+    </div>
+  </main>
+</div>
+<script src="/static/js/app.js"></script>
+<div class="toast" id="toast"></div>
+</body>
+</html>
