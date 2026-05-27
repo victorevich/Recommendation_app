@@ -12,7 +12,7 @@
 <div class="layout">
 
   <aside class="sidebar">
-    <div class="logo">
+    <div class="logo" id="logo-btn" style="cursor: pointer;">
       <div class="logo-mark">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M9 18V5l12-2v13"/>
@@ -28,9 +28,6 @@
       <button class="nav-item" data-category="friends">Дружба</button>
       <button class="nav-item" data-category="family">Семья</button>
     </nav>
-    <div class="sidebar-footer">
-      <p class="footer-hint">← расскажи как себя чувствуешь и получи рекомендацию</p>
-    </div>
   </aside>
 
   <main class="main">
@@ -50,7 +47,6 @@
         </button>
       </div>
 
-      <!-- Примеры запросов сразу под поиском -->
       <div id="empty-state" class="empty-state">
         <div class="suggestions-list">
           <button class="suggestion-item" data-query="Мне очень неловко за свой поступок на свидании, хочется посмеяться над этим вместе с героями">
@@ -74,7 +70,6 @@
 
     <div class="content-area">
 
-      <!-- Загрузка и Результаты остаются без изменений -->
       <div id="loading-state" class="loading-state hidden">
         <div class="loader-dots"><span></span><span></span><span></span></div>
         <p>подбираем серии...</p>

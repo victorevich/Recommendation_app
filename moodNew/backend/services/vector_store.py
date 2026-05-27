@@ -53,11 +53,8 @@ class VectorStore:
 
     def search(self, query: str, n_results: int = 5, disliked_ids: list[str] | None = None) -> tuple[
         list[dict], list[float]]:
-        # 1. Кодируем запрос один раз
         query_vector = self.embedder.encode(query)
         disliked_set = set(disliked_ids or [])
-
-        # 2. Используем уже готовый query_vector
         raw = self.collection.query(
             query_embeddings=[query_vector],
             n_results=n_results + len(disliked_set) + 5,
@@ -82,8 +79,6 @@ class VectorStore:
                 "cosine_sim": 1 - raw["distances"][0][i],
                 "embedding": raw["embeddings"][0][i],
             })
-
-        # 3. Возвращаем И список, И вектор
         return candidates, query_vector
 
 

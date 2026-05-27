@@ -1,19 +1,7 @@
-"""
-scripts/init_db.py
-
-Однократная инициализация векторного хранилища ChromaDB.
-Запускать из корня проекта:
-
-    python scripts/init_db.py
-    python scripts/init_db.py --csv data/dataset-mood.csv
-    python scripts/init_db.py --force   # пересоздать базу
-"""
-
 import argparse
 import sys
 from pathlib import Path
 
-# чтобы импорты из backend работали при запуске из корня проекта
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
 import pandas as pd
@@ -32,7 +20,6 @@ def load_episodes(csv_path: str) -> list[dict]:
     print(f"[init_db] Читаем датасет: {csv_path}")
     df = pd.read_csv(csv_path)
 
-    # убираем лишние кавычки из строковых колонок
     for col in df.select_dtypes(include="object").columns:
         df[col] = df[col].str.strip('"')
 

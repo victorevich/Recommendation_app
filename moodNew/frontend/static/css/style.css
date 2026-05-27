@@ -51,7 +51,6 @@ html, body { height: 100%; background: var(--bg); color: var(--text-primary); fo
     padding: 2.5rem 2rem 1.5rem;
     text-align: center;
     background: var(--bg);
-    border-bottom: 0.5px solid var(--border);
 }
 
 .hero-section .empty-serif {
@@ -102,7 +101,7 @@ html, body { height: 100%; background: var(--bg); color: var(--text-primary); fo
 }
 
 .suggestion-item:last-child {
-    border-bottom: 0.5px solid var(--border);
+    border-bottom: none;
 }
 
 .suggestion-item:hover {

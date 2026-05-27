@@ -22,7 +22,21 @@ const resultsWrap  = $("results-wrap");
 const resultsList  = $("results-list");
 const resultsCount = $("results-count");
 const resultsQuery = $("results-query");
+const logoBtn = document.getElementById("logo-btn");
 
+
+function goHome() {
+    if (input) input.value = "";
+    resultsWrap.classList.add("hidden");
+    loadingState.classList.add("hidden");
+    emptyState.classList.remove("hidden");
+    document.querySelectorAll(".nav-item").forEach((n) => n.classList.remove("active"));
+    document.querySelector('.main').scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+if (logoBtn) {
+    logoBtn.addEventListener("click", goHome);
+}
 // ── Helpers ──────────────────────────────────────────────────────────────────
 
 function stripeClass(score) {
