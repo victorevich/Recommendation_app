@@ -106,6 +106,7 @@ async function doSearch(query, displayQuery = null, categoryId = null) {
 
     if (!res.ok) throw new Error(await res.text());
     const data = await res.json();
+    console.log("results:", data.results.map(r => ({title: r.title, score: r.score})));
 
     data.query = queryToShow;
     renderResults(data);
@@ -121,10 +122,13 @@ function renderResults(data) {
   if (data.results.length === 0) {
     showEmpty();
     if (data.message) {
-      document.querySelector(".empty-serif").textContent = data.message;
+        const toast = document.getElementById("toast");
+        toast.textContent = data.message;
+        toast.classList.add("show");
+        setTimeout(() => toast.classList.remove("show"), 3000);
     }
     return;
-  }
+}
   showResults();
 
   resultsCount.textContent = `Найдено ${data.results.length} серий по запросу`;

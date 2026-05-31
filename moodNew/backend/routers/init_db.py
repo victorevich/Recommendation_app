@@ -33,7 +33,6 @@ async def init_db(request: Request, file: UploadFile = File(...)):
     df["show"] = df["show"].str.strip('"')
     df["title"] = df["title"].str.strip('"')
     df["semantic"] = df["semantic"].str.strip('"')
-    df["vibe"] = df.get("vibe", pd.Series([""] * len(df))).fillna("").str.strip('"')
     df["mood_tags"] = df.get("mood_tags", pd.Series([""] * len(df))).fillna("").str.strip('"')
 
     episodes = []
@@ -48,7 +47,6 @@ async def init_db(request: Request, file: UploadFile = File(...)):
                 "episode": int(row["episode"]),
                 "title": row["title"],
                 "imdb_rating": float(row["imdb_rating"]),
-                "vibe": row["vibe"],
                 "mood_tags": row["mood_tags"],
             }
         )

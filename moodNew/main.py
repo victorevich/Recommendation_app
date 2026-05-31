@@ -1,4 +1,6 @@
 import os
+import sys
+sys.stdout.reconfigure(line_buffering=True)
 os.environ["OPENBLAS_NUM_THREADS"] = "1"
 os.environ["OMP_NUM_THREADS"] = "1"
 from fastapi import FastAPI, Request
@@ -21,6 +23,7 @@ async def lifespan(app: FastAPI):
     app.state.store = store
     app.state.ranker = ranker
     app.state.pref_store = pref_store
+    app.state.embedder = embedder
     yield
 
 

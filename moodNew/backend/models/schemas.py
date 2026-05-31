@@ -22,7 +22,6 @@ class EpisodeResult(BaseModel):
     season: int
     episode: int
     imdb_rating: float
-    vibe: str
     mood_tags: str
     description: str
     score: int

@@ -11,14 +11,14 @@ from backend.services.vector_store import VectorStore
 
 def parse_args():
     parser = argparse.ArgumentParser(description="Инициализация векторного хранилища MoodMatch")
-    parser.add_argument("--csv", default="data/dataset-mood.csv", help="Путь к CSV-файлу с датасетом")
+    parser.add_argument("--csv", default="data/dataset.csv", help="Путь к CSV-файлу с датасетом")
     parser.add_argument("--force", action="store_true", help="Пересоздать хранилище, если оно уже заполнено")
     return parser.parse_args()
 
 
 def load_episodes(csv_path: str) -> list[dict]:
     print(f"[init_db] Читаем датасет: {csv_path}")
-    df = pd.read_csv(csv_path)
+    df = pd.read_csv(csv_path, sep=';')
 
     for col in df.select_dtypes(include="object").columns:
         df[col] = df[col].str.strip('"')
@@ -46,7 +46,6 @@ def load_episodes(csv_path: str) -> list[dict]:
                 "episode": int(row["episode"]),
                 "title": row["title"],
                 "imdb_rating": float(row["imdb_rating"]),
-                "vibe": str(row.get("vibe", "") or ""),
                 "mood_tags": str(row.get("mood_tags", "") or ""),
             }
         )

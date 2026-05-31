@@ -5,22 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dcc82ced-97a6-4f00-a5f9-65f52d8227ca" name="Changes" comment="Первая версия приложения">
-      <change beforePath="$PROJECT_DIR$/.idea/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/app.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mood.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/moodNew/backend/services/ranker.py" beforeDir="false" afterPath="$PROJECT_DIR$/moodNew/backend/services/ranker.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/moodNew/data/chromadb/b3262f51-dd14-4d7a-905d-ae912f6d244c/data_level0.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/moodNew/data/chromadb/b3262f51-dd14-4d7a-905d-ae912f6d244c/header.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/moodNew/data/chromadb/b3262f51-dd14-4d7a-905d-ae912f6d244c/length.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/moodNew/data/chromadb/b3262f51-dd14-4d7a-905d-ae912f6d244c/link_lists.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/moodNew/data/chromadb/chroma.sqlite3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/moodNew/backend/models/schemas.py" beforeDir="false" afterPath="$PROJECT_DIR$/moodNew/backend/models/schemas.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/moodNew/backend/routers/feedback.py" beforeDir="false" afterPath="$PROJECT_DIR$/moodNew/backend/routers/feedback.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/moodNew/backend/routers/init_db.py" beforeDir="false" afterPath="$PROJECT_DIR$/moodNew/backend/routers/init_db.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/moodNew/backend/routers/search.py" beforeDir="false" afterPath="$PROJECT_DIR$/moodNew/backend/routers/search.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/moodNew/data/dataset-mood.csv" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/moodNew/data/preferences.db" beforeDir="false" afterPath="$PROJECT_DIR$/moodNew/data/preferences.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/moodNew/frontend/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/moodNew/frontend/static/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/moodNew/frontend/static/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/moodNew/frontend/static/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/moodNew/frontend/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/moodNew/frontend/templates/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/moodNew/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/moodNew/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/moodNew/scripts/init_db.py" beforeDir="false" afterPath="$PROJECT_DIR$/moodNew/scripts/init_db.py" afterDir="false" />
     </list>
@@ -74,7 +68,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/960/Downloads/DATA/Disk DATA/Coursework/Recommendation_app&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Projects/Recommendation_app&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   }
 }</component>
@@ -86,17 +80,17 @@
       <recent name="D:\Coursework\Recommendation_app\app" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Projects\Recommendation_app\moodNew\data" />
       <recent name="D:\Coursework\Recommendation_app\mood\frontend\templates" />
       <recent name="D:\Coursework\Recommendation_app\mood\frontend\static\js" />
       <recent name="D:\Coursework\Recommendation_app\mood\frontend\static\css" />
       <recent name="D:\Coursework\Recommendation_app\moodmatch\frontend\static\js" />
-      <recent name="D:\Coursework\Recommendation_app\moodmatch\frontend\templates" />
     </key>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-f78a9d071105-aa17d162503b-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-243.26574.90" />
+        <option value="bundled-python-sdk-babbdf50b680-746f403e7f0c-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-241.15989.155" />
       </set>
     </attachedChunks>
   </component>
