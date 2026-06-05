@@ -1,3 +1,33 @@
+// ── Burger menu ───────────────────────────────────────────────────────────────
+const burgerBtn     = document.getElementById("burger-btn");
+const sidebar       = document.getElementById("sidebar");
+const sidebarOverlay = document.getElementById("sidebar-overlay");
+
+function openSidebar() {
+  sidebar.classList.add("open");
+  sidebarOverlay.classList.add("visible");
+  burgerBtn.classList.add("open");
+}
+
+function closeSidebar() {
+  sidebar.classList.remove("open");
+  sidebarOverlay.classList.remove("visible");
+  burgerBtn.classList.remove("open");
+}
+
+if (burgerBtn) burgerBtn.addEventListener("click", () => {
+  sidebar.classList.contains("open") ? closeSidebar() : openSidebar();
+});
+
+if (sidebarOverlay) sidebarOverlay.addEventListener("click", closeSidebar);
+
+// Закрывать сайдбар при выборе категории на мобильном
+document.querySelectorAll(".nav-item").forEach(el => {
+  el.addEventListener("click", () => {
+    if (window.innerWidth <= 768) closeSidebar();
+  });
+});
+
 const browserId = localStorage.getItem("browserId") || (() => {
   const id = crypto.randomUUID();
   localStorage.setItem("browserId", id);
@@ -6,7 +36,7 @@ const browserId = localStorage.getItem("browserId") || (() => {
 
 const embeddingCache = {};
 const state = {
-  likedEmbeddings: [],   
+  likedEmbeddings: [],
   dislikedIds: new Set(),
   globalVector: null,
   likedIds: new Set(),
@@ -106,7 +136,6 @@ async function doSearch(query, displayQuery = null, categoryId = null) {
 
     if (!res.ok) throw new Error(await res.text());
     const data = await res.json();
-    console.log("results:", data.results.map(r => ({title: r.title, score: r.score})));
 
     data.query = queryToShow;
     renderResults(data);
@@ -122,13 +151,10 @@ function renderResults(data) {
   if (data.results.length === 0) {
     showEmpty();
     if (data.message) {
-        const toast = document.getElementById("toast");
-        toast.textContent = data.message;
-        toast.classList.add("show");
-        setTimeout(() => toast.classList.remove("show"), 3000);
+      document.querySelector(".empty-serif").textContent = data.message;
     }
     return;
-}
+  }
   showResults();
 
   resultsCount.textContent = `Найдено ${data.results.length} серий по запросу`;

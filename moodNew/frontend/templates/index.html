@@ -9,9 +9,18 @@
   <link rel="stylesheet" href="/static/css/style.css">
 </head>
 <body>
+
+<!-- Бургер-кнопка (только мобильный) -->
+<button class="burger-btn" id="burger-btn" aria-label="Открыть меню">
+  <span></span><span></span><span></span>
+</button>
+
+<!-- Оверлей (только мобильный) -->
+<div class="sidebar-overlay" id="sidebar-overlay"></div>
+
 <div class="layout">
 
-  <aside class="sidebar">
+  <aside class="sidebar" id="sidebar">
     <div class="logo" id="logo-btn" style="cursor: pointer;">
       <div class="logo-mark">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -31,12 +40,10 @@
   </aside>
 
   <main class="main">
-    <!-- 1. ХЕДЕР ТЕПЕРЬ ВСЕГДА СВЕРХУ (даже когда появятся результаты) -->
     <header class="hero-section">
       <p class="empty-serif">Что смотрим сегодня?</p>
       <p class="empty-sub">Опиши своё состояние словами или выбери пример ниже</p>
 
-      <!-- 2. ПОИСКОВАЯ СТРОКА СРАЗУ ПОД ЗАГОЛОВКОМ -->
       <div class="search-wrap">
         <input id="query-input" class="query-input" type="text" placeholder="Расскажи, как себя чувствуешь...">
         <button id="search-btn" class="search-btn" aria-label="Найти">
@@ -69,12 +76,10 @@
     </header>
 
     <div class="content-area">
-
       <div id="loading-state" class="loading-state hidden">
         <div class="loader-dots"><span></span><span></span><span></span></div>
         <p>подбираем серии...</p>
       </div>
-
       <div id="results-wrap" class="hidden">
         <div class="results-header">
           <span id="results-count"></span>
@@ -82,10 +87,10 @@
         </div>
         <div id="results-list" class="results-list"></div>
       </div>
-
     </div>
   </main>
 </div>
+
 <script src="/static/js/app.js"></script>
 <div class="toast" id="toast"></div>
 </body>
