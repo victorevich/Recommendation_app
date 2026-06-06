@@ -41,7 +41,7 @@ async def search(request: Request, body: SearchRequest):
         return SearchResponse(
             results=[],
             query=display_name,
-            message="Не удалось найти подходящие серии. Попробуйте уточнить ваш запрос"
+            message="Не нашли подходящие серии. Уточните ваш запрос"
         )
 
     for item in top:

@@ -1,6 +1,6 @@
 // ── Burger menu ───────────────────────────────────────────────────────────────
-const burgerBtn     = document.getElementById("burger-btn");
-const sidebar       = document.getElementById("sidebar");
+const burgerBtn      = document.getElementById("burger-btn");
+const sidebar        = document.getElementById("sidebar");
 const sidebarOverlay = document.getElementById("sidebar-overlay");
 
 function openSidebar() {
@@ -21,13 +21,13 @@ if (burgerBtn) burgerBtn.addEventListener("click", () => {
 
 if (sidebarOverlay) sidebarOverlay.addEventListener("click", closeSidebar);
 
-// Закрывать сайдбар при выборе категории на мобильном
 document.querySelectorAll(".nav-item").forEach(el => {
   el.addEventListener("click", () => {
     if (window.innerWidth <= 768) closeSidebar();
   });
 });
 
+// ── State & DOM refs ──────────────────────────────────────────────────────────
 const browserId = localStorage.getItem("browserId") || (() => {
   const id = crypto.randomUUID();
   localStorage.setItem("browserId", id);
@@ -52,23 +52,21 @@ const resultsWrap  = $("results-wrap");
 const resultsList  = $("results-list");
 const resultsCount = $("results-count");
 const resultsQuery = $("results-query");
-const logoBtn = document.getElementById("logo-btn");
+const logoBtn      = document.getElementById("logo-btn");
 
-
+// ── Navigation ────────────────────────────────────────────────────────────────
 function goHome() {
-    if (input) input.value = "";
-    resultsWrap.classList.add("hidden");
-    loadingState.classList.add("hidden");
-    emptyState.classList.remove("hidden");
-    document.querySelectorAll(".nav-item").forEach((n) => n.classList.remove("active"));
-    document.querySelector('.main').scrollTo({ top: 0, behavior: 'smooth' });
+  if (input) input.value = "";
+  resultsWrap.classList.add("hidden");
+  loadingState.classList.add("hidden");
+  emptyState.classList.remove("hidden");
+  document.querySelectorAll(".nav-item").forEach((n) => n.classList.remove("active"));
+  document.querySelector(".main").scrollTo({ top: 0, behavior: "smooth" });
 }
 
-if (logoBtn) {
-    logoBtn.addEventListener("click", goHome);
-}
-// ── Helpers ──────────────────────────────────────────────────────────────────
+if (logoBtn) logoBtn.addEventListener("click", goHome);
 
+// ── Helpers ───────────────────────────────────────────────────────────────────
 function stripeClass(score) {
   if (score >= 80) return "stripe-high";
   if (score >= 60) return "stripe-mid";
@@ -100,20 +98,28 @@ function showResults() {
   resultsWrap.classList.remove("hidden");
 }
 
+function showError(message) {
+  emptyState.classList.remove("hidden");
+  loadingState.classList.add("hidden");
+  resultsWrap.classList.add("hidden");
+
+  const toast = document.getElementById("toast");
+  toast.textContent = message;
+  toast.classList.add("show");
+  setTimeout(() => toast.classList.remove("show"), 3000);
+}
+
 function averageVectors(vectors) {
   if (!vectors || vectors.length === 0) return null;
   const vLen = vectors[0].length;
   const avg = new Array(vLen).fill(0);
   for (const v of vectors) {
-    for (let i = 0; i < vLen; i++) {
-      avg[i] += v[i];
-    }
+    for (let i = 0; i < vLen; i++) avg[i] += v[i];
   }
   return avg.map(val => val / vectors.length);
 }
 
-// ── Search ───────────────────────────────────────────────────────────────────
-
+// ── Search ────────────────────────────────────────────────────────────────────
 async function doSearch(query, displayQuery = null, categoryId = null) {
   if (!query?.trim() && !categoryId) return;
 
@@ -136,7 +142,6 @@ async function doSearch(query, displayQuery = null, categoryId = null) {
 
     if (!res.ok) throw new Error(await res.text());
     const data = await res.json();
-
     data.query = queryToShow;
     renderResults(data);
   } catch (err) {
@@ -145,21 +150,20 @@ async function doSearch(query, displayQuery = null, categoryId = null) {
   }
 }
 
-// ── Render ───────────────────────────────────────────────────────────────────
-
+// ── Render ────────────────────────────────────────────────────────────────────
 function renderResults(data) {
   if (data.results.length === 0) {
-    showEmpty();
     if (data.message) {
-      document.querySelector(".empty-serif").textContent = data.message;
+      showError(data.message);
+    } else {
+      showEmpty();
     }
     return;
   }
-  showResults();
 
+  showResults();
   resultsCount.textContent = `Найдено ${data.results.length} серий по запросу`;
   resultsQuery.textContent = `«${data.query}»`;
-
   resultsList.innerHTML = "";
 
   data.results.forEach((ep, i) => {
@@ -210,18 +214,17 @@ function buildCard(ep) {
       <div class="card-tags">${tags}</div>
       <div class="card-foot">
         <span class="imdb"><span class="imdb-star">★</span> IMDb ${ep.imdb_rating.toFixed(1)}</span>
-        <button class="btn-action${likedCls}"    data-id="${ep.id}" data-action="like">👍 Подходит</button>
-        <button class="btn-action${dislikeCls}"  data-id="${ep.id}" data-action="dislike">👎 Не то</button>
+        <button class="btn-action${likedCls}"   data-id="${ep.id}" data-action="like">👍 Подходит</button>
+        <button class="btn-action${dislikeCls}" data-id="${ep.id}" data-action="dislike">👎 Не то</button>
       </div>
     </div>
   `;
 }
 
-// ── Feedback ─────────────────────────────────────────────────────────────────
-
+// ── Feedback ──────────────────────────────────────────────────────────────────
 async function handleFeedback(btn) {
-  const id     = btn.dataset.id;
-  const action = btn.dataset.action;
+  const id        = btn.dataset.id;
+  const action    = btn.dataset.action;
   const embedding = embeddingCache[id];
 
   btn.classList.add("pop");
@@ -263,7 +266,6 @@ async function handleFeedback(btn) {
 }
 
 // ── Event listeners ───────────────────────────────────────────────────────────
-
 if (searchBtn) searchBtn.addEventListener("click", () => doSearch(input.value));
 
 if (input) {
@@ -279,15 +281,11 @@ document.querySelectorAll(".nav-item, .mood-card, .suggestion-item").forEach((el
       el.classList.add("active");
     }
 
-    let richQuery = "";
-    let prettyName = "";
-
     if (el.dataset.category) {
-      prettyName = el.innerText.trim();
-      doSearch("", prettyName, el.dataset.category);
+      doSearch("", el.innerText.trim(), el.dataset.category);
     } else {
-      prettyName = el.querySelector('.mood-title')?.innerText || el.dataset.query;
-      richQuery = el.dataset.query;
+      const richQuery  = el.dataset.query;
+      const prettyName = el.querySelector(".mood-title")?.innerText || richQuery;
       doSearch(richQuery, prettyName);
     }
   });

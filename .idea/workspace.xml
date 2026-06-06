@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dcc82ced-97a6-4f00-a5f9-65f52d8227ca" name="Changes" comment="Удалила лишние файлы и поменяла логику поиска">
+    <list default="true" id="dcc82ced-97a6-4f00-a5f9-65f52d8227ca" name="Changes" comment="Добавила адаптивность">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/moodNew/data/preferences.db" beforeDir="false" afterPath="$PROJECT_DIR$/moodNew/data/preferences.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/moodNew/backend/routers/search.py" beforeDir="false" afterPath="$PROJECT_DIR$/moodNew/backend/routers/search.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/moodNew/frontend/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/moodNew/frontend/static/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/moodNew/frontend/static/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/moodNew/frontend/static/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/moodNew/frontend/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/moodNew/frontend/templates/index.html" afterDir="false" />
@@ -112,12 +112,21 @@
       <option name="project" value="LOCAL" />
       <updated>1780204528433</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Добавила адаптивность">
+      <option name="closed" value="true" />
+      <created>1780644528296</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1780644528296</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Первая версия приложения" />
     <MESSAGE value="Удалила лишние файлы и поменяла логику поиска" />
-    <option name="LAST_COMMIT_MESSAGE" value="Удалила лишние файлы и поменяла логику поиска" />
+    <MESSAGE value="Добавила адаптивность" />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавила адаптивность" />
   </component>
 </project>
